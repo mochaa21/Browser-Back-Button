@@ -27,3 +27,14 @@ class BrowserHistory:
 
     def StackSize(self):
         return self.url_visited
+
+riwayat_aby = BrowserHistory()
+
+riwayat_aby.visit_page("google.com")
+riwayat_aby.visit_page("roadmap.sh/python")
+riwayat_aby.visit_page("stackoverflow.com/questions/linked-list")
+
+print("Mundur ke:", riwayat_aby.go_back()) 
+print("Mundur ke:", riwayat_aby.go_back())
+print("Mundur ke:", riwayat_aby.go_back())
+print("Mundur ke:", riwayat_aby.go_back())
