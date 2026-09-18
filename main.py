@@ -1,29 +1,29 @@
-class Node:
+class Web:
     def __init__(self, value):
         self.value = value
         self.next = None
 
-class Stack:
+class BrowserHistory:
     def __init__(self):
-        self.head = None
-        self.size = 0
+        self.last_url = None
+        self.url_visited = 0
 
-    def push(self, element):
-        new_node = Node(element)
-        if self.head:
-            new_node.next = self.head
-        self.head = new_node
-        self.size += 1
+    def visit_page(self, element):
+        new_url_node = Web(element)
+        if self.last_url:
+            new_url_node.next = self.last_url
+        self.last_url = new_url_node
+        self.url_visited += 1
 
-    def pop(self):
+    def go_back(self):
         if self.isEmpty():
             return "History is empty. Opening New Tab."
-        poppedElement = self.head
-        self.size -= 1
-        return poppedElement
+        poppedURL = self.last_url
+        self.url_visited -= 1
+        return poppedURL
 
     def isEmpty(self):
-        return self.size == 0
+        return self.url_visited == 0
 
     def StackSize(self):
-        return self.size
+        return self.url_visited
