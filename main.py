@@ -8,12 +8,19 @@ class Stack:
         self.head = None
         self.size = 0
 
-    def pop(self, element):
+    def push(self, element):
         new_node = Node(element)
         if self.head:
             new_node.next = self.head
         self.head = new_node
         self.size += 1
+
+    def pop(self):
+        if self.isEmpty():
+            return "History is empty. Opening New Tab."
+        poppedElement = self.head
+        self.size -= 1
+        return poppedElement
 
     def isEmpty(self):
         return self.size == 0
