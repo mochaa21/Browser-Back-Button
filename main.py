@@ -19,8 +19,9 @@ class BrowserHistory:
         if self.isEmpty():
             return "History is empty. Opening New Tab."
         poppedURL = self.last_url
+        self.last_url = self.last_url.next
         self.url_visited -= 1
-        return poppedURL
+        return poppedURL.value
 
     def isEmpty(self):
         return self.url_visited == 0
